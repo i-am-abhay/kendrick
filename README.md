@@ -6,9 +6,7 @@
 
 </div>
 
-<br><br>
-
-# Assistive Communication Translator
+<br><br><br>
 
 Imagine knowing exactly what you want to say, but struggling to communicate it clearly.
 
