@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="1024" height="459" alt="871211d8-8773-42d3-86ed-a54a79b23658" src="https://github.com/user-attachments/assets/ae1791f6-bc00-492b-bfa5-918c6aa38350" />
+<img width="1024" height="459" alt="Assistive Communication Translator" src="https://github.com/user-attachments/assets/4e5238bd-5548-4d97-9d20-6e66c1e8b1de" />
 
 ### Turning difficult-to-understand speech into clear, natural communication.
 
@@ -12,27 +12,25 @@
 
 Imagine knowing exactly what you want to say, but having to repeat yourself because a computer cannot understand your speech.
 
-<br>
-
-For people with **stuttering, dysarthria, slurring, rapid speech, unusual pronunciation, and other speech differences**, conventional speech recognition can turn a simple sentence into something completely different.
+For people with **stuttering, dysarthria, slurring, rapid speech, unusual pronunciation, and other speech differences**, conventional speech recognition can turn an intended sentence into something completely different.
 
 <br>
 
 Assistive Communication Translator is built to change that.
 
-<br>
-
-Instead of simply guessing individual words, the system uses **local AI to understand the entire utterance**, considering context, grammar, phonetic similarity, and relationships between words to reconstruct the communication the speaker is most likely trying to express.
+Instead of treating speech recognition as the final step, the system combines **speech-to-text and text-to-speech** with local AI to create a complete communication loop: understand what someone is trying to say, reconstruct the intended message, and give them a clear, natural voice to communicate it.
 
 <br><br>
 
-For example:
+## An Example
+
+The unusual text below is **deliberately distorted**. It represents an example of how speech might be transcribed when someone is speaking while experiencing difficulty with articulation — such as inconsistent pronunciation, slurring, or rapidly changing speech.
 
 ```text
 hellllo cann you palsle papwr towoeols plelas
 ```
 
-becomes:
+Rather than simply accepting that transcription as correct, the system looks at the **entire utterance** and uses context, grammar, phonetic similarity, and relationships between words to determine what the speaker was most likely trying to communicate.
 
 ```text
 Hello, can you please pass the paper towels?
@@ -42,7 +40,7 @@ Hello, can you please pass the paper towels?
 
 The goal is not to speak for someone.
 
-**The goal is to help their actual words be understood.**
+**The goal is to help their intended communication be understood — and then give that communication a natural voice.**
 
 <br><br>
 
@@ -50,6 +48,8 @@ The goal is not to speak for someone.
 
 ```text
 Speech
+  ↓
+Speech-to-Text
   ↓
 Local Qwen3 ASR
   ↓
@@ -59,6 +59,8 @@ Contextual reconstruction
   ↓
 Natural English
   ↓
+Text-to-Speech
+  ↓
 Local Qwen3 TTS
   ↓
 Spoken communication
@@ -66,27 +68,27 @@ Spoken communication
 
 <br>
 
-The system separates speech recognition from language reconstruction so that each stage has a clear purpose.
+**Speech-to-text** is responsible for capturing the speaker's words as accurately as possible, even when the input is difficult, inconsistent, or imperfect.
 
 <br>
 
-**ASR** recovers the spoken content.
+**Contextual reconstruction** then looks beyond individual words. The system considers the complete utterance, grammar, meaning, and phonetic relationships to recover the message the speaker is most likely trying to express.
 
 <br>
 
-**The language model** interprets the complete utterance and reconstructs the intended message.
+**Text-to-speech** takes that reconstructed message and turns it back into natural spoken language, allowing the communication to be heard clearly.
 
 <br>
 
-**TTS** gives the speaker a natural spoken output.
+This makes the project more than a speech recognizer.
+
+**It is a communication pipeline from voice → understanding → voice.**
 
 <br><br>
 
 ## Built Local-First
 
-The core communication pipeline runs locally using:
-
-<br>
+The entire communication pipeline is designed to run locally using:
 
 | Component                    | Model / Runtime              |
 | ---------------------------- | ---------------------------- |
@@ -111,17 +113,39 @@ Local services:
 
 <br><br>
 
+## Privacy
+
+Privacy is fundamental to the project.
+
+<br>
+
+Speech can contain incredibly personal information. That's why the core pipeline is designed to run **entirely on your own computer**.
+
+<br>
+
+Your audio, transcriptions, reconstructed messages, and conversations do not need to be sent to a cloud AI service for the system to work.
+
+<br>
+
+**Your voice stays with you. Your words stay with you.**
+
+<br>
+
+Privacy isn't an afterthought.
+
+**It is part of the foundation.**
+
+<br><br>
+
 ## Why It Matters
 
 Speech recognition should not assume that everyone speaks in exactly the same way.
 
-<br>
-
-A missed syllable, a repeated word, or a slurred sound should not become a completely different message.
+A missed syllable, repeated sound, slurred word, or unusual pronunciation should not automatically become a completely different message.
 
 <br>
 
-Assistive Communication Translator explores a more human-centered approach:
+Assistive Communication Translator explores a more human-centered approach: instead of requiring the speaker to adapt their speech to technology, the technology should become better at adapting to the speaker.
 
 <br>
 
@@ -129,7 +153,7 @@ Assistive Communication Translator explores a more human-centered approach:
 
 <br>
 
-The long-term goal is a communication tool that makes everyday interactions easier, more private, and more accessible for people whose speech is often misunderstood by conventional systems.
+The long-term goal is a communication tool that makes everyday interactions **easier, more private, and more accessible**, while giving people a better way to both express themselves and be understood.
 
 <br><br>
 
@@ -139,27 +163,7 @@ The long-term goal is a communication tool that makes everyday interactions easi
 
 <br>
 
-The core local AI pipeline is operational, with ongoing work focused on improving difficult-speech recognition, contextual reconstruction, microphone reliability, and natural spoken output.
-
-<br><br>
-
-## Privacy
-
-Privacy is fundamental to the project.
-
-<br>
-
-The communication pipeline is designed to run **entirely locally on your own computer**. Your speech, transcriptions, and conversations do not need to be sent to a cloud AI service to be processed.
-
-<br>
-
-**Your voice stays with you. Your words stay with you.**
-
-<br>
-
-Privacy isn't an afterthought or an optional feature.
-
-**It is part of the foundation.**
+The core local AI pipeline is operational, with ongoing work focused on improving difficult-speech **recognition, contextual reconstruction, microphone reliability, and natural spoken output**.
 
 <br><br>
 
