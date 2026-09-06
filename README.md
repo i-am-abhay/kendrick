@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="1024" height="459" alt="Assistive Communication Translator" src="https://github.com/user-attachments/assets/4e5238bd-5548-4d97-9d20-6e66c1e8b1de" />
+<img width="1024" height="459" alt="871211d8-8773-42d3-86ed-a54a79b23658" src="https://github.com/user-attachments/assets/ae1791f6-bc00-492b-bfa5-918c6aa38350" />
 
 ### Turning difficult-to-understand speech into clear, natural communication.
 
@@ -108,10 +108,6 @@ Local services:
 8004  TTS
 3000  Web Application
 ```
-
-<br>
-
-No Gemini API key is required for the local communication pipeline.
 
 <br><br>
 
