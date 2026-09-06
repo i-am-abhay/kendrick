@@ -187,8 +187,6 @@ Local services:
 
 <br>
 
-No Gemini API key is required for the local communication pipeline.
-
 Your audio and text can be processed directly on your device rather than being sent to a cloud AI provider simply to be understood.
 
 **Your voice stays with you. Your words stay with you.**
