@@ -2,7 +2,7 @@
 
 <img width="1024" height="459" alt="Assistive Communication Translator" src="https://github.com/user-attachments/assets/4e5238bd-5548-4d97-9d20-6e66c1e8b1de" />
 
-### Turning difficult-to-understand speech into clear, natural communication.
+### Turning difficult-to-express thoughts into clear, natural communication.
 
 </div>
 
@@ -10,27 +10,37 @@
 
 # Assistive Communication Translator
 
-Imagine knowing exactly what you want to say, but having to repeat yourself because a computer cannot understand your speech.
+Imagine knowing exactly what you want to say, but struggling to communicate it clearly.
 
-For people with **stuttering, dysarthria, slurring, rapid speech, unusual pronunciation, and other speech differences**, conventional speech recognition can turn an intended sentence into something completely different.
+For some people, the barrier is **speech**. Stuttering, dysarthria, slurring, rapid speech, inconsistent pronunciation, and other speech differences can make conventional speech recognition misunderstand what they are saying.
+
+For others, the barrier is **typing**. Involuntary keystrokes, repeated or missing letters, motor difficulties, inconsistent typing patterns, or simply being unable to type accurately can turn a simple sentence into something that no longer reflects what they actually meant.
 
 <br>
 
-Assistive Communication Translator is built to change that.
+The thought is still there.
 
-Instead of treating speech recognition as the final step, the system combines **speech-to-text and text-to-speech** with local AI to create a complete communication loop: understand what someone is trying to say, reconstruct the intended message, and give them a clear, natural voice to communicate it.
+**The communication system just needs to be better at understanding it.**
+
+<br>
+
+That is what motivated me to build **Assistive Communication Translator**.
+
+Instead of requiring someone to repeatedly correct themselves or force their communication into a format that technology understands, the system is designed to work with imperfect input.
+
+Whether that input comes from **speech or typing**, the goal is the same: understand the message behind the input and help express it naturally.
 
 <br><br>
 
 ## An Example
 
-The unusual text below is **deliberately distorted**. It represents an example of how speech might be transcribed when someone is speaking while experiencing difficulty with articulation — such as inconsistent pronunciation, slurring, or rapidly changing speech.
+The distorted text below is **intentional**. It represents an example of imperfect input — similar to what can happen when speech is difficult to articulate or when someone has difficulty producing accurate text.
 
 ```text
 hellllo cann you palsle papwr towoeols plelas
 ```
 
-Rather than simply accepting that transcription as correct, the system looks at the **entire utterance** and uses context, grammar, phonetic similarity, and relationships between words to determine what the speaker was most likely trying to communicate.
+Rather than treating every unusual word as an isolated error, the system considers the **entire message**, using context, grammar, phonetic similarity, word relationships, and overall meaning to reconstruct what the person was most likely trying to communicate.
 
 ```text
 Hello, can you please pass the paper towels?
@@ -38,57 +48,93 @@ Hello, can you please pass the paper towels?
 
 <br>
 
-The goal is not to speak for someone.
+The goal is not to replace someone's voice or thoughts.
 
-**The goal is to help their intended communication be understood — and then give that communication a natural voice.**
+**The goal is to help their intended communication come through clearly.**
 
 <br><br>
 
 ## How It Works
 
+Assistive Communication Translator is designed around a two-way communication pipeline.
+
 ```text
-Speech
-  ↓
-Speech-to-Text
-  ↓
-Local Qwen3 ASR
-  ↓
-Imperfect transcription
-  ↓
-Contextual reconstruction
-  ↓
-Natural English
-  ↓
-Text-to-Speech
-  ↓
-Local Qwen3 TTS
-  ↓
-Spoken communication
+                 INPUT
+                   │
+          ┌────────┴────────┐
+          │                 │
+       Speech             Typing
+          │                 │
+          ▼                 ▼
+   Speech-to-Text      Text Input
+          │                 │
+          └────────┬────────┘
+                   ▼
+        Contextual Reconstruction
+                   │
+                   ▼
+          Intended Message
+                   │
+                   ▼
+          Text-to-Speech
+                   │
+                   ▼
+        Natural Spoken Output
 ```
 
 <br>
 
-**Speech-to-text** is responsible for capturing the speaker's words as accurately as possible, even when the input is difficult, inconsistent, or imperfect.
+### Speech-to-Text
+
+The speech pathway begins with **local speech recognition**.
+
+The system converts spoken input into text using **Qwen3 ASR**, including speech that may contain repetitions, slurring, inconsistent pronunciation, rapid delivery, or other difficulties.
+
+The resulting transcription does not have to be perfect.
+
+It becomes the raw material for the next stage.
 
 <br>
 
-**Contextual reconstruction** then looks beyond individual words. The system considers the complete utterance, grammar, meaning, and phonetic relationships to recover the message the speaker is most likely trying to express.
+### Typing Assistance
+
+Communication difficulties aren't limited to speech.
+
+Someone may know exactly what they want to write but struggle to produce accurate text because of **motor difficulties, involuntary keystrokes, repeated letters, missing letters, inconsistent typing, or other typing impairments**.
+
+The same contextual reconstruction approach can be applied to this imperfect text, helping recover the intended message instead of forcing the user to repeatedly retype it.
 
 <br>
 
-**Text-to-speech** takes that reconstructed message and turns it back into natural spoken language, allowing the communication to be heard clearly.
+### Contextual Reconstruction
+
+This is where the system goes beyond traditional word-by-word correction.
+
+The local language model considers the **complete utterance**, including grammar, surrounding words, relationships between concepts, likely phrasing, and the meaning of the sentence.
+
+The objective is to recover the message that makes the most sense while avoiding unnecessary changes to what the user actually intended.
 
 <br>
 
-This makes the project more than a speech recognizer.
+### Text-to-Speech
 
-**It is a communication pipeline from voice → understanding → voice.**
+Once the intended message has been reconstructed, **Qwen3 TTS** converts it into natural spoken language.
+
+This creates a complete communication loop:
+
+**Input → Understanding → Clear Text → Natural Speech**
+
+The result can give someone another way to communicate when producing speech or typing accurately is difficult.
 
 <br><br>
 
 ## Built Local-First
 
-The entire communication pipeline is designed to run locally using:
+Privacy is fundamental to this project.
+
+Speech and text can contain deeply personal information. Conversations may include names, addresses, private thoughts, medical information, or anything else a person would not want uploaded to a third-party service.
+
+That is why the core communication pipeline is designed to run **entirely on the user's own computer**.
 
 | Component                    | Model / Runtime              |
 | ---------------------------- | ---------------------------- |
@@ -111,49 +157,63 @@ Local services:
 3000  Web Application
 ```
 
-<br><br>
-
-## Privacy
-
-Privacy is fundamental to the project.
-
 <br>
 
-Speech can contain incredibly personal information. That's why the core pipeline is designed to run **entirely on your own computer**.
-
-<br>
-
-Your audio, transcriptions, reconstructed messages, and conversations do not need to be sent to a cloud AI service for the system to work.
-
-<br>
+Your speech and text do not need to leave your device simply to be understood.
 
 **Your voice stays with you. Your words stay with you.**
 
 <br>
 
-Privacy isn't an afterthought.
+Privacy is not an extra feature added to the project.
 
-**It is part of the foundation.**
+**Privacy is part of the foundation.**
 
 <br><br>
 
 ## Why It Matters
 
-Speech recognition should not assume that everyone speaks in exactly the same way.
+Communication technology often assumes that people will provide **clean, consistent input**.
 
-A missed syllable, repeated sound, slurred word, or unusual pronunciation should not automatically become a completely different message.
+Real people don't always have that ability.
+
+A repeated syllable should not become a completely different sentence.
+
+A missed letter should not erase someone's intended meaning.
+
+A slurred word should not automatically be treated as an unrelated word.
+
+And someone should not have to repeatedly correct themselves just to communicate something they already know how to say.
 
 <br>
 
-Assistive Communication Translator explores a more human-centered approach: instead of requiring the speaker to adapt their speech to technology, the technology should become better at adapting to the speaker.
+Assistive Communication Translator explores a more human-centered approach:
+
+> **Technology should adapt to the person — not require the person to adapt to the technology.**
 
 <br>
 
-> **Technology should adapt to the speaker — not require the speaker to adapt to the technology.**
+The long-term goal is to make everyday communication **easier, more private, and more accessible** for people whose speech or typing can be difficult for conventional systems to interpret.
+
+<br><br>
+
+## The Bigger Idea
+
+At its core, this project is not really about fixing spelling.
+
+It is not simply about speech recognition.
+
+And it is not simply about text-to-speech.
+
+It is about recognizing that **imperfect input does not mean imperfect thoughts**.
+
+Someone can know exactly what they want to communicate even when their speech or typing does not come out the way they intended.
+
+Assistive Communication Translator is an attempt to bridge that gap.
 
 <br>
 
-The long-term goal is a communication tool that makes everyday interactions **easier, more private, and more accessible**, while giving people a better way to both express themselves and be understood.
+**From difficult input to understandable communication.**
 
 <br><br>
 
@@ -161,9 +221,7 @@ The long-term goal is a communication tool that makes everyday interactions **ea
 
 **Active development**
 
-<br>
-
-The core local AI pipeline is operational, with ongoing work focused on improving difficult-speech **recognition, contextual reconstruction, microphone reliability, and natural spoken output**.
+The core local AI pipeline is operational, with ongoing work focused on improving difficult-speech recognition, typing reconstruction, contextual understanding, microphone reliability, and natural spoken output.
 
 <br><br>
 
