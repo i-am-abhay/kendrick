@@ -1,8 +1,8 @@
 <div align="center">
-  
-<img width="1024" height="459" alt="2df3b00d-7c95-4044-b56b-283bf595d039" src="https://github.com/user-attachments/assets/9b5b14e5-4eb6-44aa-bad1-25d61480a2ee" />
 
-### Turning difficult-to-express thoughts into clear, natural communication.
+<img width="1024" height="459" alt="Assistive Communication Translator" src="https://github.com/user-attachments/assets/9b5b14e5-4eb6-44aa-bad1-25d61480a2ee" />
+
+<h3>Turning difficult-to-express thoughts into clear, natural communication.</h3>
 
 </div>
 
@@ -62,41 +62,23 @@ The goal is not to speak for someone.
 
 Assistive Communication Translator is built around a two-way communication pipeline that connects **speech, text, understanding, and spoken output**.
 
-```text
-                         INPUT
-                           │
-                ┌──────────┴──────────┐
-                │                     │
-             Speech                 Typing
-                │                     │
-                ▼                     │
-         Speech-to-Text               │
-                │                     │
-         Local Qwen3 ASR              │
-                │                     │
-                └──────────┬──────────┘
-                           ▼
-                Imperfect Input
-                           │
-                           ▼
-            Contextual Reconstruction
-                           │
-                           ▼
-                  Intended Message
-                           │
-                           ▼
-                 Clear Natural Text
-                           │
-                           ▼
-                   Text-to-Speech
-                           │
-                    Local Qwen3 TTS
-                           │
-                           ▼
-                  Spoken Communication
-```
+<br><br>
 
-<br>
+<div align="center">
+
+<h3>Architecture overview</h3>
+
+<img width="572" height="976" alt="b976e592-893d-4dc9-ac9a-e90fb21a1701" src="https://github.com/user-attachments/assets/a503ba4e-97b8-437f-9a8b-288bc85403f6" />
+
+<br><br>
+
+<h3>Data-flow diagram</h3>
+
+<img width="1024" height="572" alt="a3251507-5657-4985-96db-eae4f3982f99" src="https://github.com/user-attachments/assets/fbae7712-7a83-4af2-927e-547cba465e36" />
+
+</div>
+
+<br><br>
 
 ### Speech-to-Text
 
