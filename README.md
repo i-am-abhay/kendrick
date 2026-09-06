@@ -66,13 +66,13 @@ Assistive Communication Translator is built around a two-way communication pipel
 
 <div align="center">
 
-<h3>Architecture overview</h3>
+<h3>Data-flow diagram</h3>
 
 <img width="572" height="976" alt="b976e592-893d-4dc9-ac9a-e90fb21a1701" src="https://github.com/user-attachments/assets/a503ba4e-97b8-437f-9a8b-288bc85403f6" />
 
 <br><br>
 
-<h3>Data-flow diagram</h3>
+<h3>Architecture overview</h3>
 
 <img width="1024" height="572" alt="a3251507-5657-4985-96db-eae4f3982f99" src="https://github.com/user-attachments/assets/fbae7712-7a83-4af2-927e-547cba465e36" />
 
