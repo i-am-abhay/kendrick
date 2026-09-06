@@ -249,7 +249,7 @@ The challenge is building technology capable of recognizing that difference.
 
 <br>
 
-Assistive Communication Translator is an attempt to bridge that gap.
+**kendrick** is an attempt to bridge that gap.
 
 <br><br>
 
