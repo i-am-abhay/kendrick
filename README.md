@@ -1,6 +1,6 @@
 <div align="center">
   
-<img width="1024" height="459" alt="1959dbff-b072-4630-bd0b-63b430d7f794" src="https://github.com/user-attachments/assets/b29d34af-b602-49f1-af55-61b5d2788ed7" />
+<img width="1024" height="459" alt="2df3b00d-7c95-4044-b56b-283bf595d039" src="https://github.com/user-attachments/assets/9b5b14e5-4eb6-44aa-bad1-25d61480a2ee" />
 
 ### Turning difficult-to-express thoughts into clear, natural communication.
 
