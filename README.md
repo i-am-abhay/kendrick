@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="1024" height="459" alt="Assistive Communication Translator" src="https://github.com/user-attachments/assets/9b5b14e5-4eb6-44aa-bad1-25d61480a2ee" />
+<img width="1886" height="834" alt="dcc73096-b078-4747-97d7-650d25ad36e7" src="https://github.com/user-attachments/assets/c059aae4-18a0-44af-b124-fa5db540626e" />
 
 <h3>Turning difficult-to-express thoughts into clear, natural communication.</h3>
 
